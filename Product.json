@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Cup",
+    "description": "Blue",
+    "price": 200,
+    "thumbnail": "none",
+    "code": "aadd88",
+    "stock": 5,
+    "id": 1
+  },
+  {
+    "title": "Mouse",
+    "description": "Red",
+    "price": 200,
+    "thumbnail": "none",
+    "code": "aadd88",
+    "stock": 5,
+    "id": 2
+  },
+  {
+    "title": "Cup",
+    "description": "Blue",
+    "price": 200,
+    "thumbnail": "none",
+    "code": "aadd88",
+    "stock": 5,
+    "id": 3
+  }
+]
