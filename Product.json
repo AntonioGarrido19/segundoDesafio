@@ -25,5 +25,40 @@
     "code": "aadd88",
     "stock": 5,
     "id": 3
+  },
+  {
+    "title": "Mouse",
+    "description": "Red",
+    "price": 200,
+    "thumbnail": "none",
+    "code": "aadd88",
+    "stock": 5,
+    "id": 4
+  },
+  {
+    "title": "Mouse",
+    "description": "Red",
+    "price": 200,
+    "thumbnail": "none",
+    "code": "aadd99",
+    "stock": 5,
+    "id": 5
+  },
+  {
+    "title": "Mouse",
+    "price": 200,
+    "thumbnail": "none",
+    "code": "aadd9229",
+    "stock": 5,
+    "id": 6
+  },
+  {
+    "title": "Mouse",
+    "description": "Red",
+    "price": 200,
+    "thumbnail": "none",
+    "code": "aadd213",
+    "stock": 5,
+    "id": 7
   }
 ]

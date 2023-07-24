@@ -20,22 +20,30 @@ class ProductManager {
 
   async addProduct(obj) {
     try {
-      // const requiredProps = [
-      //   "title",
-      //   "description",
-      //   "price",
-      //   "thumbnail",
-      //   "code",
-      //   "stock",
-      //   "id"
-      // ];
+      const requiredProps = [
+        "title",
+        "description",
+        "price",
+        "thumbnail",
+        "code",
+        "stock",
+      ];
 
-      // const isValidProduct = requiredProps.every(prop => obj.hasOwnProperty(prop));
+      const isValidProduct = requiredProps.every(prop => obj.hasOwnProperty(prop));
 
-      // if (!isValidProduct) {
-      //   throw new Error("Invalid product. Missing required properties.");
-      // }
+      if (!isValidProduct) {
+        throw new Error("Invalid product. Missing required properties.");
+      }
       const productsPrev = await this.getProducts();
+
+      const existingProduct = productsPrev.find(
+        (product) => product.code === obj.code
+      );
+        if (existingProduct) {
+          console.log (`Ya existe un producto con el código ${obj.code}.`)
+          return
+        }
+
       let id;
       if (!productsPrev.length) {
         id = 1;
@@ -45,7 +53,8 @@ class ProductManager {
       productsPrev.push({ ...obj, id });
       await fs.promises.writeFile(this.path, JSON.stringify(productsPrev));
     } catch (error) {
-      return error;
+      console.log(error.message);
+      throw error;
     }
   }
 
@@ -115,15 +124,41 @@ const product3 = {
   stock: 5,
 };
 
+const product4 = {
+  title: "Mouse",
+  description: "Red",
+  price: 200,
+  thumbnail: "none",
+  code: "aadd88",
+  stock: 5,
+};
+
+const product5 = {
+  title: "Mouse",
+  description: "Red",
+  price: 200,
+  thumbnail: "none",
+  code: "aadd213",
+  stock: 5,
+};
+
+const product6 = {
+  title: "Mouse",
+  price: 200,
+  thumbnail: "none",
+  code: "aadd2113",
+  stock: 5,
+};
+
 async function test() {
   const manager1 = new ProductManager("Product.json");
-  // await manager1.addProduct(product2)
+  await manager1.addProduct(product6)
   // await manager1.updateProduct(2, {title: 'Mouse', price:300})
   // await manager1.deleteProduct(2)
-  const product = await manager1.getProductById(3);
-  // const products = await manager1.getProducts();
+  // const product = await manager1.getProductById(3);
+  const products = await manager1.getProducts();
   // console.log(products);
-  console.log(product);
+  console.log(products);
 
 }
 
